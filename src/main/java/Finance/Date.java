@@ -16,9 +16,6 @@ public class Date {
     // TODO: 3/17/2022
     // исВалидДате переделано вроде как норм
     public Date(int day, int month, int year) {
-        /*if(!isValidDate(day, month, year)){
-            throw new IllegalArgumentException("Incorrect date");
-        }*/
         isValidDate(day, month, year);
         this.day = day;
         this.month = month;
@@ -26,7 +23,7 @@ public class Date {
     }
 
     private static boolean isValidDate(int day, int month, int year) {
-        System.out.println(day+"/"+month+"/"+year);
+        //System.out.println(day+"/"+month+"/"+year);
         int[] monthDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int[] monthLeapDays = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
@@ -90,6 +87,6 @@ public class Date {
 
     @Override
     public String toString() {
-        return this.day + " " + this.month + " " + this.year;
+        return day + "." + month + "." + year;
     }
 }

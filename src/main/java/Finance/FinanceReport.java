@@ -34,7 +34,7 @@ public class FinanceReport {
         // TODO: 3/17/2022
         this.payments = new Payment[f.payments.length];
         for (int i = 0; i < f.payments.length; i++) {
-            payments[i] = new Payment(f.payments[i]);
+            this.payments[i] = new Payment(f.payments[i]);
         }
         this.date = new Date(f.getDay(), f.getMonth(), f.getYear());
         this.author = f.getAuthor();

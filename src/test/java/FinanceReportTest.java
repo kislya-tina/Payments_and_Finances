@@ -36,7 +36,7 @@ public class FinanceReportTest {
         financeReport.setPayment(somePayment, 1);
 
         FinanceReport financeReportCopy = new FinanceReport(financeReport);
-        assertEquals(financeReport, financeReportCopy);
+        assertEquals(financeReport.toString(), financeReportCopy.toString());
 
         financeReport.setPayment(
                 new Payment("bshj c c", 1,1, 1980, 1000), 0
