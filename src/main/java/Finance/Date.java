@@ -15,37 +15,37 @@ public class Date {
 
     // TODO: 3/17/2022
     // исВалидДате переделано вроде как норм
-    public Date(int year, int month, int day) {
-        if(!isValidDate(year, month, day)){
+    public Date(int day, int month, int year) {
+        /*if(!isValidDate(day, month, year)){
             throw new IllegalArgumentException("Incorrect date");
-        }
+        }*/
+        isValidDate(day, month, year);
         this.day = day;
         this.month = month;
         this.year = year;
     }
 
-    private static boolean isValidDate(int year, int month, int day) {
-
+    private static boolean isValidDate(int day, int month, int year) {
+        System.out.println(day+"/"+month+"/"+year);
         int[] monthDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int[] monthLeapDays = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        boolean leap = true;
+        boolean leap = !((year % 4 != 0) || (year % 100) == 0) && (year % 400 != 0);
+        //проверка на високосность
 
-        if (((year % 4 == 0) && (year % 100) != 0) || (year % 400 == 0)) {//проверка на високосность
-            leap = false;
-        } else if (!(year >= 1970)) {
+        if (year < 1970) {
             throw new IllegalArgumentException("Incorrect year");
         }
 
-        if (1 <= month && month <= 12) {
+        if (month > 12 || month < 1) {
             throw new IllegalArgumentException("Incorrect month");
         }
 
-        if(!(!leap && monthDays[month - 1] >= day)){
+        if(!leap && monthDays[month - 1] < day){
             throw new IllegalArgumentException("Incorrect day");
         }
 
-        if(!(leap && monthLeapDays[month - 1] >= day)){
+        if(leap && monthLeapDays[month - 1] < day){
             throw new IllegalArgumentException("Incorrect day");
         }
 

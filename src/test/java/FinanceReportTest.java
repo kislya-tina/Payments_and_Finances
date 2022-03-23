@@ -29,7 +29,7 @@ public class FinanceReportTest {
 
     @Test
     public void copyTest() {
-        Payment payment = new Payment("Иванов Иван Сергеевич", 11, 11, 1999, 30);
+        Payment payment = new Payment("Иванов Иван Сергеевич", 28, 2, 1999, 30);
         Payment somePayment = new Payment();
         FinanceReport financeReport = new FinanceReport(2, 5, 4, 2020, "Бухгалтер Лена");
         financeReport.setPayment(payment, 0);

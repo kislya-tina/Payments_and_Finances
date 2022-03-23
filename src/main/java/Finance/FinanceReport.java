@@ -18,7 +18,7 @@ public class FinanceReport {
         if(author == null || author.isEmpty()) throw new IllegalArgumentException();
         this.quantityOfReports = quantityOfReports;
         payments = new Payment[quantityOfReports];
-        this.date = new Date(year, month, day);
+        this.date = new Date(day, month, year);
         this.author = author;
     }
 
@@ -32,14 +32,17 @@ public class FinanceReport {
     public FinanceReport(FinanceReport f) {
         this.quantityOfReports = f.getQuantityOfReports();
         // TODO: 3/17/2022
-        this.payments = f.getPayments();
-        this.date = new Date(f.getYear(), f.getMonth(), f.getDay());
+        this.payments = new Payment[f.payments.length];
+        for (int i = 0; i < f.payments.length; i++) {
+            payments[i] = new Payment(f.payments[i]);
+        }
+        this.date = new Date(f.getDay(), f.getMonth(), f.getYear());
         this.author = f.getAuthor();
     }
 
     public FinanceReport(int quantityOfReports) {
         this.quantityOfReports = quantityOfReports;
-        payments = new Payment[quantityOfReports];
+        this.payments = new Payment[quantityOfReports];
         this.date = new Date();
         this.author = "noname";
     }

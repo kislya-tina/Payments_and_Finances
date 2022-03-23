@@ -17,7 +17,7 @@ public class Payment {
         } else {
             throw new IllegalArgumentException("Некорректно введена сумма платежа");
         }
-        this.date = new Date(year, month, day);
+        this.date = new Date(day, month, year);
     }
 
     //конструктор по умолчанию
@@ -30,7 +30,7 @@ public class Payment {
     //конструктор копирования
     public Payment(Payment p) {
         this.fullName = p.getFullName();
-        this.date = new Date(p.getYear(), p.getMonth(), p.getDay());
+        this.date = new Date(p.getDay(), p.getMonth(), p.getYear());
         this.amountOfPayment = p.getAmountOfPayment();
     }
 
@@ -72,7 +72,7 @@ public class Payment {
     }
 
     public void setDate(int day, int month, int year) {
-        this.date = new Date(year, month, day);
+        this.date = new Date(day, month, year);
     }
 
 
