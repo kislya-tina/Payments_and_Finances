@@ -101,6 +101,10 @@ public class Payment {
     public String toString() {
         int rub = amountOfPayment / 100;
         int kop = amountOfPayment % 100;
-        return String.format("Плательщик: %s, Дата: %02d.%02d.%04d, Сумма: %d руб. %02d коп.\n", fullName, getDay(),getMonth(),getYear(), rub, kop);
+        return String.format("Плательщик: %s, Дата: %02d.%02d.%04d, Сумма: %d руб. %02d коп.\n",
+                fullName,
+                getDay(),getMonth(),getYear(),
+                rub, kop
+        );
     }
 }

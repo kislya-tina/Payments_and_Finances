@@ -67,7 +67,7 @@ public class FinanceReportTest {
         FinanceReport financeReport = new FinanceReport(2, 5, 4, 2020, "Бухгалтер Лена");
         financeReport.setPayment(payment, 0);
         financeReport.setPayment(payment, 1);
-        assertEquals(true, payment.equals(financeReport.getReport(0)));
+        assertEquals(true, payment.equals(financeReport.getPayment(0)));
     }
 
     @Test

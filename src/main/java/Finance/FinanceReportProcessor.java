@@ -1,33 +1,33 @@
 package Finance;
 
+import java.util.ArrayList;
+
 public class FinanceReportProcessor {
 
 
     public static FinanceReport ConfigureByCharReport(FinanceReport financeReport, char c) {
+        ArrayList<Payment> list = new ArrayList<>();
 
-        FinanceReport configuredFinanceReport = new FinanceReport(financeReport.getQuantityOfReports());
         for (int i = 0; i < financeReport.getQuantityOfReports(); i++) {
-            int j = 0;
-            if (Character.toLowerCase((char) financeReport.getReport(i).getFullName().charAt(0)) == Character.toLowerCase((char) c)) {
-                configuredFinanceReport.setPayment(financeReport.getReport(i), j);
-                j++;
+            if (Character.toLowerCase(financeReport.getPayment(i).getFullName().charAt(0)) == Character.toLowerCase(c)) {
+                list.add(financeReport.getPayment(i));
+
             }
         }
-        return configuredFinanceReport;
-
+        return new FinanceReport(financeReport, list.toArray(Payment[]::new));
     }
 
 
     public static FinanceReport ConfigureBySumReports(FinanceReport financeReport, double a) {
-        FinanceReport configuredFinanceReport = new FinanceReport(financeReport.getQuantityOfReports());
+        ArrayList<Payment> list = new ArrayList<>();
+
         for (int i = 0; i < financeReport.getQuantityOfReports(); i++) {
-            int j = 0;
-            if (Double.compare(a, financeReport.getReport(i).getAmountOfPayment()) > 0) {
-                configuredFinanceReport.setPayment(financeReport.getReport(i), j);
-                j++;
+            if (Double.compare(a, financeReport.getPayment(i).getAmountOfPayment()) > 0) {
+                list.add(financeReport.getPayment(i));
+
             }
         }
-        return configuredFinanceReport;
+        return new FinanceReport(financeReport,list.toArray(Payment[]::new));
     }
 
 

@@ -38,6 +38,9 @@ public class Date {
             throw new IllegalArgumentException("Incorrect month");
         }
 
+        if(day <= 0){
+            throw new IllegalArgumentException("Incorrect day < = 0");
+        }
         if(!leap && monthDays[month - 1] < day){
             throw new IllegalArgumentException("Incorrect day");
         }
@@ -76,13 +79,22 @@ public class Date {
         return super.hashCode();
     }
 
-    @Override
-    public boolean equals(Object obj) {
+//    @Override
+//    public boolean equals(Object obj) {
+//
+//        if(obj instanceof Date)
+//            return getDay() == ((Date) obj).getDay() &&
+//                    getMonth() == ((Date) obj).getMonth()
+//                    && getYear() == ((Date) obj).getYear();
+//        return false;
+//    }
 
-        if(obj instanceof Date)
-            return getDay() == ((Date) obj).getDay() && getMonth() == ((Date) obj).getMonth()
-                    && getYear() == ((Date) obj).getYear();
-        return false;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Date date)) return false;
+        return getYear() == date.getYear() && getMonth() == date.getMonth() && getDay() == date.getDay();
     }
 
     @Override
